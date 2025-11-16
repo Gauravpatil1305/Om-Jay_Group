@@ -1,0 +1,12 @@
+<svg width="200" height="90" viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="90" rx="18" fill="#fff" stroke="#d6d6d6" />
+  <path d="M30 60 L70 30 L110 60" stroke="#0f3c78" stroke-width="12" stroke-linecap="round" fill="none" />
+  <path d="M110 60 L140 30 L170 60" stroke="#ef8a1e" stroke-width="12" stroke-linecap="round" fill="none" />
+  <text x="65" y="80" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#0f3c78">
+    OMJAY
+  </text>
+  <text x="130" y="80" font-family="Poppins, sans-serif" font-size="18" font-weight="600" fill="#ef8a1e">
+    GROUP
+  </text>
+</svg>
+

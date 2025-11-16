@@ -1,0 +1,48 @@
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="detailBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f96826" />
+      <stop offset="60%" stop-color="#f46b26" />
+      <stop offset="100%" stop-color="#1f3b6d" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="700" fill="url(#detailBg)" />
+  <polygon
+    points="20,150 450,40 880,150 880,550 450,660 20,550"
+    fill="#fff"
+    stroke="#1f3b6d"
+    stroke-width="10"
+  />
+  <circle cx="450" cy="350" r="180" fill="#f96826" opacity="0.2" />
+  <g>
+    <rect x="310" y="220" width="280" height="120" rx="50" fill="#1f3b6d" opacity="0.6" />
+    <rect x="310" y="350" width="280" height="120" rx="30" fill="#1f3b6d" />
+    <rect x="330" y="360" width="60" height="80" rx="20" fill="#fff" />
+    <rect x="510" y="360" width="60" height="80" rx="20" fill="#fff" />
+    <rect x="330" y="270" width="160" height="40" rx="20" fill="#fff" />
+    <rect x="510" y="270" width="60" height="40" rx="20" fill="#fff" />
+  </g>
+  <text
+    x="450"
+    y="580"
+    font-family="Arial, sans-serif"
+    font-size="52"
+    font-weight="700"
+    fill="#1f3b6d"
+    text-anchor="middle"
+  >
+    OM JAY FACILITY
+  </text>
+  <text
+    x="450"
+    y="640"
+    font-family="Arial, sans-serif"
+    font-size="24"
+    font-weight="600"
+    fill="#1f3b6d"
+    text-anchor="middle"
+  >
+    Transportation · Logistics · Services
+  </text>
+</svg>
+

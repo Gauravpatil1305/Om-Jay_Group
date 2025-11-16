@@ -1,0 +1,11 @@
+<svg width="220" height="90" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="90" rx="18" fill="#fff" stroke="#d6d6d6" />
+  <path d="M40 20 L110 70 L180 20" stroke="#e05d2f" stroke-width="15" stroke-linecap="round" fill="none" />
+  <text x="110" y="50" font-family="Poppins, sans-serif" font-size="28" font-weight="800" fill="#e05d2f" text-anchor="middle">
+    OMJAY
+  </text>
+  <text x="110" y="74" font-family="Poppins, sans-serif" font-size="18" font-weight="600" fill="#4b4b4b" text-anchor="middle">
+    FACILITY
+  </text>
+</svg>
+

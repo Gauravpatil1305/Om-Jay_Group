@@ -1,0 +1,19 @@
+<svg width="220" height="90" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="90" rx="16" fill="#fff" stroke="#d6d6d6" />
+  <path
+    d="M40 70 L70 35 L100 70 L130 35 L160 70"
+    fill="none"
+    stroke="#0f2a66"
+    stroke-width="12"
+    stroke-linecap="round"
+  />
+  <circle cx="50" cy="40" r="16" fill="#0f2a66" />
+  <circle cx="140" cy="40" r="16" fill="#0f2a66" />
+  <text x="110" y="75" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#0f2a66">
+    NEW HOLLAND
+  </text>
+  <text x="110" y="88" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#0f2a66">
+    JAY TRACTORS
+  </text>
+</svg>
+

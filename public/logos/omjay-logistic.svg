@@ -1,0 +1,13 @@
+<svg width="220" height="90" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="90" rx="18" fill="#fff" stroke="#d6d6d6" />
+  <path d="M40 40 H110 L140 25 L180 40" stroke="#1f3f7a" stroke-width="10" fill="none" stroke-linecap="round" />
+  <rect x="30" y="60" width="60" height="20" rx="10" fill="#1f3f7a" />
+  <rect x="130" y="60" width="60" height="20" rx="10" fill="#d4242c" />
+  <text x="110" y="60" font-family="Poppins, sans-serif" font-size="28" font-weight="700" fill="#1f3f7a" text-anchor="middle">
+    OMJAY
+  </text>
+  <text x="110" y="80" font-family="Poppins, sans-serif" font-size="16" font-weight="600" fill="#b21a24" text-anchor="middle">
+    LOGISTICS
+  </text>
+</svg>
+
