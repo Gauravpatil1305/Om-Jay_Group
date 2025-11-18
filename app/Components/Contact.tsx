@@ -31,7 +31,7 @@ const contactMethods = [
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-[6rem] bg-gradient-to-b from-white to-slate-100">
+    <section id="contact" className="py-24 bg-linear-to-b from-white to-slate-100">
       <div className="w-4/5 mx-auto space-y-10">
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-5">
@@ -44,7 +44,7 @@ const Contact = () => {
           </div>
           <div className="rounded-4xl overflow-hidden border border-slate-200 bg-white shadow-lg">
             <Image
-              src="/ClientImg/om_jay_group_table_calendar 2025_page-0012.jpg"
+              src="/ClientImg/contactUs.jpg"
               alt="Om Jay Facility contact"
               width={800}
               height={600}

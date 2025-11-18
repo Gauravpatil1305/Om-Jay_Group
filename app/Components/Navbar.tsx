@@ -9,7 +9,10 @@ interface Props {
 
 const Navbar = ({ openNav }: Props) => {
   return (
-    <nav id="home" className="w-full bg-white fixed z-[9999]">
+    <nav
+      id="home"
+      className="w-full bg-white/80 backdrop-blur border-b border-slate-100 fixed z-[9999]"
+    >
       <div className="flex w-4/5 mx-auto items-center justify-between py-4 h-[8vh] lg:h-[12vh]">
         <Link
           href="/"
@@ -31,31 +34,31 @@ const Navbar = ({ openNav }: Props) => {
           <div className="hidden lg:flex items-center gap-6">
             <Link
               href="/"
-              className="text-sm font-semibold uppercase tracking-[0.3rem] text-slate-800 hover:text-amber-500"
+              className="text-sm font-medium text-slate-900 hover:text-amber-500"
             >
               Home
             </Link>
             <Link
               href="/our-services"
-              className="text-sm font-semibold uppercase tracking-[0.3rem] text-slate-800 hover:text-amber-500"
+              className="text-sm font-medium text-slate-900 hover:text-amber-500"
             >
               Our Services
             </Link>
             <Link
               href="/about"
-              className="text-sm font-semibold uppercase tracking-[0.3rem] text-slate-800 hover:text-amber-500"
+              className="text-sm font-medium text-slate-900 hover:text-amber-500"
             >
               About us
             </Link>
             <Link
               href="/#gallery"
-              className="text-sm font-semibold uppercase tracking-[0.3rem] text-slate-800 hover:text-amber-500"
+              className="text-sm font-medium text-slate-900 hover:text-amber-500"
             >
               Gallery
             </Link>
             <Link
               href="/#contact"
-              className="text-sm font-semibold uppercase tracking-[0.3rem] text-slate-800 hover:text-amber-500"
+              className="text-sm font-medium text-slate-900 hover:text-amber-500"
             >
               Contact
             </Link>

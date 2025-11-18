@@ -12,21 +12,21 @@ const valueCards = [
     title: "Mission",
     description:
       "Deliver seamless logistics, manpower, and facility experiences that let clients focus on growth.",
-    imageSrc: "/images/h7.png",
+    imageSrc: "/images/missions.jpg",
     imageAlt: "Mission icon illustration",
   },
   {
     title: "Vision",
     description:
       "Be the most trusted integrated operations partner for Western India’s manufacturing and retail engines.",
-    imageSrc: "/images/h8.png",
+    imageSrc: "/images/vission.png",
     imageAlt: "Vision icon illustration",
   },
   {
     title: "Service Strengths",
     description:
       "ISO-backed processes, digital tracking, and regional teams that scale on demand.",
-    imageSrc: "/images/t1.png",
+    imageSrc: "/images/strength.png",
     imageAlt: "Service strength icon illustration",
   },
 ];
@@ -73,7 +73,7 @@ export default function AboutPage() {
         <section className="relative bg-slate-900 text-white">
           <div className="absolute inset-0">
             <Image
-              src="/ClientImg/om_jay_group_table_calendar 2025_page-0002.jpg"
+              src="/ClientImg/aboutUs.jpg"
               alt="Om Jay team meeting"
               fill
               className="object-cover opacity-80"
@@ -158,7 +158,7 @@ export default function AboutPage() {
             </div>
             <div className="rounded-4xl overflow-hidden border border-slate-200 bg-white shadow-lg">
               <Image
-                src="/ClientImg/om_jay_group_table_calendar 2025_page-0005.jpg"
+                src="/ClientImg/principalguide.avif"
                 alt="Om Jay facilities"
                 width={800}
                 height={600}
@@ -170,7 +170,7 @@ export default function AboutPage() {
             {serviceStrengths.map((strength) => (
               <p
                 key={strength}
-                className="rounded-3xl border border-slate-200 bg-white px-5 py-4 text-slate-600"
+                className="rounded-3xl border border-amber-100 bg-linear-to-r from-amber-50/80 to-white px-5 py-4 text-slate-600 shadow-sm"
               >
                 {strength}
               </p>

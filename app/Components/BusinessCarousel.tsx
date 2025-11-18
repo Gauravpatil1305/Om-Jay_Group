@@ -36,7 +36,7 @@ const BusinessCarousel = () => {
       autoPlay
       autoPlaySpeed={4000}
       centerMode={false}
-      className="!mb-[-3rem]"
+      className="-mb-12!"
       containerClass="business-carousel"
       infinite
       itemClass="px-2"
@@ -57,7 +57,7 @@ const BusinessCarousel = () => {
               sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 90vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+            <div className="absolute inset-0 z-10 pointer-events-none bg-linear-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
           </div>
           <div className="space-y-2 px-5 py-5">
             <p className="text-[12px] uppercase tracking-[0.5rem] text-amber-500">

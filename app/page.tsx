@@ -22,28 +22,28 @@ const services = [
     title: "Transport & Logistics",
     detail:
       "Fleet management, compliance-ready trailers, and multi-modal connectivity across the western corridor.",
-    imageSrc: "/images/t1.png",
+    imageSrc: "/images/transport&logistics.jpg",
     imageAlt: "Truck on logistics road",
   },
   {
     title: "Manpower Solutions",
     detail:
       "Skilled, semiskilled, and unskilled crews with payroll, compliance, and training to protect every operation.",
-    imageSrc: "/images/t2.png",
+    imageSrc: "/images/manpower-services.jpeg",
     imageAlt: "Team of workers ready for deployment",
   },
   {
     title: "Facility Services",
     detail:
       "Security, housekeeping, and landscaping teams keeping campuses, factories, and events running smoothly.",
-    imageSrc: "/images/h5.png",
+    imageSrc: "/images/facility-management-1.png",
     imageAlt: "Facility services maintenance",
   },
   {
     title: "Packing & Distribution",
     detail:
       "Secure packing, palletised loading, and last-mile drops that treat every parcel like critical cargo.",
-    imageSrc: "/images/d6.png",
+    imageSrc: "/images/Packing & Distribution.jpg",
     imageAlt: "Goods being prepared for distribution",
   },
 ];
@@ -53,38 +53,61 @@ const values = [
     title: "Mission",
     description:
       "Deliver seamless logistics, manpower, and facility experiences that let clients focus on growth.",
-    imageSrc: "/images/h7.png",
+    imageSrc: "/images/missions.jpg",
     imageAlt: "Mission icon illustration",
   },
   {
     title: "Vision",
     description:
       "Be the most trusted integrated operations partner for Western India’s manufacturing and retail engines.",
-    imageSrc: "/images/h8.png",
+    imageSrc: "/images/vission.png",
     imageAlt: "Vision icon illustration",
   },
   {
     title: "Service Strengths",
     description:
       "ISO-backed processes, digital tracking, and regional teams that scale on demand.",
-    imageSrc: "/images/t1.png",
+    imageSrc: "/images/strength.png",
     imageAlt: "Service strength icon illustration",
   },
 ];
 
 const galleryImages = [
-  "/ClientImg/om_jay_group_table_calendar 2025_page-0004.jpg",
-  "/ClientImg/om_jay_group_table_calendar 2025_page-0005.jpg",
-  "/ClientImg/om_jay_group_table_calendar 2025_page-0006.jpg",
-  "/ClientImg/om_jay_group_table_calendar 2025_page-0007.jpg",
+  "/img/WhatsApp Image 2025-11-17 at 2.03.16 PM.jpeg",
+  "/img/gallary2img.jpeg",
+  "/img/WhatsApp Image 2025-11-17 at 2.03.18 PM.jpeg",
+  "/img/WhatsApp Image 2025-11-17 at 2.03.20 PM.jpeg",
 ];
 
 const galleryHero = {
-  src: "/images/SliderKate.jpg",
-  alt: "Logistics partners briefing on site",
+  src: "/img/gallaryhero.jpeg",
+  alt: "Om Jay team preparing for dispatch",
   caption:
-    "Meaningful on-ground moments—loading docks, coordination tents, and teams keeping every shipment moving.",
+    "Night pulse at the depot—teams lining up trailers, double-checking manifests, and staying ready for the next run.",
 };
+
+const liveSnapshots = [
+  {
+    src: "/img/WhatsApp Image 2025-11-17 at 2.03.10 PM.jpeg",
+    alt: "Field team preparing trucks",
+    caption: "Coordinating a late-evening dispatch from one of our regional hubs.",
+  },
+  {
+    src: "/img/gallaryimg2.jpeg",
+    alt: "Crew reviewing orders",
+    caption: "Operations leads checking manifests before handing off to drivers.",
+  },
+  {
+    src: "/img/WhatsApp Image 2025-11-17 at 2.03.12 PM.jpeg",
+    alt: "Cargo being staged for loading",
+    caption: "Heavy cargo staged carefully to keep every load stable and compliant.",
+  },
+  {
+    src: "/img/WhatsApp Image 2025-11-17 at 2.03.13 PM.jpeg",
+    alt: "Team on site",
+    caption: "On-site coordination between logistics, manpower, and facility partners.",
+  },
+];
 
 type TrustedClient = {
   name: string;
@@ -100,62 +123,57 @@ const trustedClients: TrustedClient[] = [
   },
   {
     name: "Tata",
-    logoSrc: "/images/tata.png",
+    logoSrc: "/images/tata.jpg",
     description: "Heavy industry logistics folded into Tata production lines.",
   },
   {
     name: "Ferrero",
-    logoSrc: "/images/ferrero.png",
+    logoSrc: "/images/download.png",
     description: "FMCG refrigerated cargo support for confectionery runs.",
   },
   {
     name: "Schreiber",
-    logoSrc: "/images/schreiber.png",
+    logoSrc: "/images/download (1).png",
     description: "Fresh dairy distribution and manpower readiness.",
   },
   {
     name: "Bharat Forge",
-    logoSrc: "/images/bharat-forge.png",
+    logoSrc: "/images/download (2).png",
     description: "Precision forging logistics and plant services.",
   },
   {
-    name: "Kalyani",
-    logoSrc: "/images/kalyani.png",
-    description: "Engineering and manufacturing support across the western corridor.",
-  },
-  {
     name: "Mahindra Logistics",
-    logoSrc: "/images/mahindra-logistics.png",
+    logoSrc: "/images/download (3).png",
     description: "Joint logistics planning for pan-India movements.",
   },
   {
     name: "Peppermint",
-    logoSrc: "/images/peppermint.png",
+    logoSrc: "/images/download (4).png",
     description: "Retail display, warehousing, and event manpower.",
   },
   {
     name: "Cottonking",
-    logoSrc: "/images/cottonking.png",
+    logoSrc: "/images/cottonking).png",
     description: "Textile warehousing and last-mile distribution partner.",
   },
   {
     name: "Bilt",
-    logoSrc: "/images/bilt.png",
+    logoSrc: "/images/download (5).png",
     description: "Interior and upholstery supply chain coordination.",
   },
   {
     name: "Glenmark",
-    logoSrc: "/images/glenmark.png",
+    logoSrc: "/images/download (6).png",
     description: "Pharma logistics with temperature-controlled facilities.",
   },
   {
     name: "Baramati Agro",
-    logoSrc: "/images/baramati-agro.png",
+    logoSrc: "/images/download.jpg",
     description: "Agriculture-to-market corridor management.",
   },
   {
     name: "Mota",
-    logoSrc: "/images/mota.png",
+    logoSrc: "/images/images.png",
     description: "Regional fleet and manpower partner for complex deliveries.",
   },
 ];
@@ -200,7 +218,7 @@ const TrustedClientsCarousel = ({ clients }: { clients: TrustedClient[] }) => (
     {clients.map((client) => (
       <article
         key={client.name}
-        className="mx-auto flex max-w-[320px] flex-col items-center gap-3 rounded-[32px] border border-slate-200 bg-white px-6 py-8 text-center shadow-lg"
+        className="mx-auto flex max-w-[320px] flex-col items-center gap-3 rounded-4xl border border-slate-200 bg-white px-6 py-8 text-center shadow-lg"
       >
         <div className="relative h-16 w-28">
           <Image
@@ -241,15 +259,15 @@ export default function Home() {
         <section id="home" className="relative h-[90vh] overflow-hidden">
           <div className="absolute inset-0">
             <Image
-              src="/images/Brochure OM Jay Facility Pvt. Ltd_..._page-0001.jpg"
-              alt="Om Jay Facility poster"
+              src="/images/heroimg.webp"
+              alt="Om Jay hero image"
               fill
               className="object-cover opacity-70"
               priority
             />
           </div>
           <div className="relative z-10 w-4/5 mx-auto h-full flex flex-col justify-center gap-6 text-white">
-            <p className="text-xs uppercase tracking-[0.6rem] text-amber-200">Om Jay Facility</p>
+            <p className="text-xs uppercase tracking-[0.6rem] text-amber-200">Reach the Om Jay family</p>
             <h1 className="text-3xl md:text-5xl font-bold">
               Transport, manpower, and facility services powered by trusted teams.
             </h1>
@@ -320,7 +338,7 @@ export default function Home() {
                 className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl"
               >
                 <div className="flex items-center gap-4">
-                  <div className="relative h-16 w-16 rounded-2xl border border-amber-100 bg-amber-50 p-3">
+                  <div className="relative h-20 w-20 rounded-2xl border border-amber-100 bg-amber-50 p-3">
                     <Image
                       src={service.imageSrc}
                       alt={service.imageAlt}
@@ -355,7 +373,7 @@ export default function Home() {
                 key={value.title}
                 className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl"
               >
-                <div className="relative h-20 w-20">
+                <div className="relative h-24 w-24">
                   <Image
                     src={value.imageSrc}
                     alt={value.imageAlt}
@@ -411,6 +429,46 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section
+          id="snapshots"
+          data-aos="fade-up"
+          className="w-4/5 mx-auto py-20 space-y-10"
+        >
+          <div className="flex flex-col gap-1">
+            <p className="text-xs uppercase tracking-[0.6rem] text-slate-500">
+              Fresh captures
+            </p>
+            <h2 className="text-3xl font-bold text-slate-900">
+              Recent field moments
+            </h2>
+            <p className="text-sm text-slate-500 max-w-3xl">
+              A few shots from the new photo journal—teams on the move, cargo
+              getting staged, and collaborations that make operations steady.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {liveSnapshots.map((shot) => (
+              <article
+                key={shot.src}
+                className="rounded-4xl border border-slate-200 bg-white shadow-lg overflow-hidden"
+              >
+                <div className="relative h-72">
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <div className="px-6 py-5">
+                  <p className="text-sm text-slate-600">{shot.caption}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 

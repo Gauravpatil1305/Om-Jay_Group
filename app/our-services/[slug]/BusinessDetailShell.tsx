@@ -58,13 +58,13 @@ export default function BusinessDetailShell({ company }: BusinessDetailShellProp
 
         <section className="w-4/5 mx-auto grid gap-10 lg:grid-cols-[1.3fr_1fr] pb-20">
           <div className="bg-white rounded-4xl shadow-lg p-6 border border-slate-100">
-            <div className="rounded-3xl overflow-hidden border border-slate-200">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-slate-200">
               <Image
                 src={company.detailImage}
                 alt={company.name}
-                width={900}
-                height={700}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(min-width: 1024px) 50vw, 90vw"
+                className="object-cover"
               />
             </div>
             <div className="mt-8 grid grid-cols-2 gap-6">

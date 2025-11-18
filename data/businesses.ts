@@ -28,8 +28,8 @@ export const businesses: Business[] = [
       "Gat No-483, 2/1, Baramati - Indapur Rd, Moti Bag, Baramati, Maharashtra 413102",
     owners: "Vaibhav Shrikant Kate",
     ownerTitle: "Director",
-    detailImage: "/images/omjay-detail.svg",
-    featureImage: "/images/SliderKate.jpg",
+    detailImage: "/images/kateMOTORS.jpeg",
+    featureImage: "/images/katemotors.jpeg",
   },
   {
     slug: "jay-tractors",
@@ -44,8 +44,8 @@ export const businesses: Business[] = [
       "Gat No-483, 2/1, Baramati - Indapur Rd, Moti Bag, Baramati, Maharashtra 413102",
     owners: "Vidhyadhar Shrikant Kate",
     ownerTitle: "Proprietor",
-    detailImage: "/images/omjay-detail.svg",
-    featureImage: "/images/Jay Tractors.jpg",
+    detailImage: "/images/jaytrack.jpeg",
+    featureImage: "/images/Jay Tractors.jpg.jpeg",
   },
   {
     slug: "om-jay-associates",
@@ -60,7 +60,7 @@ export const businesses: Business[] = [
       "Plot No. 46/47, CFC Centre, Textile Park, Maharashtra Industrial Development Corporation, Baramati 413133",
     owners: "Anjali Vaibhav Kate",
     ownerTitle: "Proprietor",
-    detailImage: "/images/omjay-detail.svg",
+    detailImage: "/images/association.jpg",
     featureImage: "/images/Om Jay Associates.png",
   },
   {
@@ -76,7 +76,7 @@ export const businesses: Business[] = [
       "Plot No. 46/47, CFC Centre, Textile Park, Maharashtra Industrial Development Corporation, Baramati 413133",
     owners: "Pratibha Vidhyadhar Kate",
     ownerTitle: "Proprietor",
-    detailImage: "/images/omjay-detail.svg",
+    detailImage: "/images/kirtienterpricess.jpg",
     featureImage: "/images/Kirti Enterprises.jpg",
   },
   {
@@ -93,7 +93,7 @@ export const businesses: Business[] = [
     owners:
       "Vaibhav Shrikant Kate · Vidhyadhar Shrikant Kate · Anjali Vaibhav Kate · Pratibha Vidhyadhar Kate",
     ownerTitle: "Directors",
-    detailImage: "/images/omjay-detail.svg",
+    detailImage: "/images/facility-management-1.png",
     featureImage: "/images/Om Jay Facility Pvt. Ltd..jpg",
   },
   {
@@ -109,7 +109,7 @@ export const businesses: Business[] = [
       "Gat No-483, 2/1, Baramati - Indapur Rd, Moti Bag, Baramati, Maharashtra 413102",
     owners: "Vaibhav Shrikant Kate",
     ownerTitle: "Director",
-    detailImage: "/images/omjay-detail.svg",
+    detailImage: "/images/transport&logistics.jpg",
     featureImage: "/images/Om Jay Logistic Pvt. Ltd..jpg",
   },
 ];
