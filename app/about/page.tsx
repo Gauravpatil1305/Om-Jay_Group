@@ -49,6 +49,30 @@ const serviceStrengths = [
   "We aim to leave the Om Jay Facility footprint as a source of joy for every customer.",
 ];
 
+const leadershipProfiles = [
+  {
+    name: "Vaibhav Shrikant Kate",
+    title: "Director · Om Jay Group",
+    description:
+      "Guides the group’s strategic investments and partnerships with a focus on operational excellence and long-term growth.",
+    image: "/images/Vaibhav Shrikant Kate Director of Om Jay Group.jpg",
+  },
+  {
+    name: "Vidhyadhar Shrikant Kate",
+    title: "Director · Om Jay Group",
+    description:
+      "Leads the facility and mobility services, ensuring every team delivers reliability and safety.",
+    image: "/images/Vidhyadhar Shrikant Kate Director of Om Jay Group.jpg",
+  },
+  {
+    name: "Dnyaneshwar (Mauli) Kale",
+    title: "CEO · Om Jay Group",
+    description:
+      "Champions customer-centric thinking and digital modernization across logistics, manpower, and dealership arms.",
+    image: "/images/Dnyaneshwar (Mauli) Kale CEO of Om Jay Group.jpg",
+  },
+];
+
 export default function AboutPage() {
   const [nav, setNav] = useState(false);
   const openNavHandler = () => setNav(true);
@@ -89,6 +113,38 @@ export default function AboutPage() {
               and manpower. We combine compliance, experience, and agile teams to deliver on time while
               keeping our people and partners safe.
             </p>
+          </div>
+        </section>
+
+        <section className="w-4/5 mx-auto py-16 space-y-6">
+          <div data-aos="fade-up" className="space-y-2 text-center">
+            <p className="text-xs uppercase tracking-[0.6rem] text-amber-400">Leadership</p>
+            <h2 className="text-3xl font-bold">People powering Om Jay Group</h2>
+            <p className="text-slate-600">
+              Our leadership team is anchored in trust, long-term thinking, and a commitment to the partners we serve.
+            </p>
+          </div>
+          <div data-aos="fade-up" className="grid gap-6 md:grid-cols-3">
+            {leadershipProfiles.map((leader) => (
+              <article
+                key={leader.name}
+                className="flex flex-col gap-4 rounded-4xl border border-slate-200 bg-white p-6 shadow-xl"
+              >
+                <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-slate-200">
+                  <Image
+                    src={leader.image}
+                    alt={leader.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-slate-900">{leader.name}</h3>
+                  <p className="text-sm font-semibold text-amber-600">{leader.title}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">{leader.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 

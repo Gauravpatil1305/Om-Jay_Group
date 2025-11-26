@@ -15,7 +15,6 @@ export default function OurServicesPage() {
 
   const openNavHandler = () => setNav(true);
   const closeNavHandler = () => setNav(false);
-
   useEffect(() => {
     AOS.init({
       startEvent: "DOMContentLoaded",
@@ -32,7 +31,7 @@ export default function OurServicesPage() {
       <Navbar openNav={openNavHandler} />
 
       <main className="pt-[8vh]">
-        <section className="w-4/5 mx-auto text-center py-[6rem] space-y-6">
+        <section className="w-4/5 mx-auto text-center py-24 space-y-6">
           <p className="text-sm uppercase tracking-[0.5rem] text-gray-500">
             Group of Businesses
           </p>
@@ -50,6 +49,8 @@ export default function OurServicesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {businesses.map((company) => {
               const logoSrc = company.logoUrl || company.featureImage;
+              const displayName =
+                company.slug === "kate-motors" ? "Authorized Dealership" : company.name;
               return (
                 <Link
                   key={company.slug}
@@ -68,9 +69,13 @@ export default function OurServicesPage() {
                     />
                   </div>
                   <h2 className="mt-6 text-lg font-semibold text-slate-900">
-                    {company.name}
+                    {displayName}
                   </h2>
-                  <p className="mt-3 text-sm text-slate-500">{company.nature}</p>
+                  <p className="mt-3 text-sm text-slate-500">
+                    {company.slug === "kate-motors"
+                      ? "Kate Motors Pvt. Ltd."
+                      : company.nature}
+                  </p>
                   <span className="mt-6 text-sm font-semibold text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     View details →
                   </span>
