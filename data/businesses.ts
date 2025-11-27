@@ -12,6 +12,7 @@ export interface Business {
   ownerTitle: string;
   detailImage: string;
   featureImage: string;
+  galleryImages: string[];
 }
 
 export const businesses: Business[] = [
@@ -30,6 +31,7 @@ export const businesses: Business[] = [
     ownerTitle: "Director",
     detailImage: "/images/kateMOTORS.jpeg",
     featureImage: "/images/katemotors.jpeg",
+    galleryImages: ["/images/katemotors.jpeg", "/images/kateMOTORS (2).jpeg"],
   },
   {
     slug: "jay-tractors",
@@ -46,6 +48,7 @@ export const businesses: Business[] = [
     ownerTitle: "Proprietor",
     detailImage: "/images/jaytrack.jpeg",
     featureImage: "/images/Jay Tractors.jpg.jpeg",
+    galleryImages: ["/images/jaytrack.jpeg", "/images/Jay Tractors.jpeg"],
   },
   {
     slug: "om-jay-facility",
@@ -63,6 +66,7 @@ export const businesses: Business[] = [
     ownerTitle: "Directors",
     detailImage: "/images/facility-management-1.png",
     featureImage: "/images/Om Jay Facility Pvt. Ltd..jpg",
+    galleryImages: ["/images/bustransportation.jpg", "/images/BusTransportations.jpg"],
   },
   {
     slug: "kirti-enterprises",
@@ -77,8 +81,9 @@ export const businesses: Business[] = [
       "Plot No. 46/47, CFC Centre, Textile Park, Maharashtra Industrial Development Corporation, Baramati 413133",
     owners: "Pratibha Vidhyadhar Kate",
     ownerTitle: "Proprietor",
-    detailImage: "/images/kirtienterpricess.jpg",
+    detailImage: "/images/Kirti Enterprises.jpg",
     featureImage: "/images/Kirti Enterprises.jpg",
+    galleryImages: ["/images/Kirti Enterprises.jpg", "/images/salesteam.jpg"],
   },
   {
     slug: "om-jay-logistic",
@@ -95,6 +100,7 @@ export const businesses: Business[] = [
     ownerTitle: "Director",
     detailImage: "/images/transport&logistics.jpg",
     featureImage: "/images/Om Jay Logistic Pvt. Ltd..jpg",
+    galleryImages: ["/images/transport&logistics.jpg", "/images/logistics-services.jpg"],
   },
   {
     slug: "om-jay-associates",
@@ -111,6 +117,7 @@ export const businesses: Business[] = [
     ownerTitle: "Proprietor",
     detailImage: "/images/association.jpg",
     featureImage: "/images/Om Jay Associates.png",
+    galleryImages: ["/images/manpower-services.jpeg", "/images/Manpower.jpg"],
   },
 ];
 

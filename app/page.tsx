@@ -10,6 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import { businesses } from "../data/businesses";
 
 const heroHighlights = [
   { label: "Years of trust", value: "15+" },
@@ -71,20 +72,6 @@ const values = [
     imageAlt: "Service strength icon illustration",
   },
 ];
-
-const galleryImages = [
-  "/img/WhatsApp Image 2025-11-17 at 2.03.16 PM.jpeg",
-  "/img/gallary2img.jpeg",
-  "/img/WhatsApp Image 2025-11-17 at 2.03.18 PM.jpeg",
-  "/img/WhatsApp Image 2025-11-17 at 2.03.20 PM.jpeg",
-];
-
-const galleryHero = {
-  src: "/img/gallaryhero.jpeg",
-  alt: "Om Jay team preparing for dispatch",
-  caption:
-    "Night pulse at the depot—teams lining up trailers, double-checking manifests, and staying ready for the next run.",
-};
 
 const liveSnapshots = [
   {
@@ -237,6 +224,9 @@ const TrustedClientsCarousel = ({ clients }: { clients: TrustedClient[] }) => (
 
 export default function Home() {
   const [nav, setNav] = useState(false);
+  const [selectedBusinessSlug, setSelectedBusinessSlug] = useState<string>(
+    businesses[0]?.slug ?? ""
+  );
   const openNavHandler = () => setNav(true);
   const closeNavHandler = () => setNav(false);
 
@@ -249,6 +239,12 @@ export default function Home() {
       easing: "ease-out-quart",
     });
   }, []);
+
+  const activeBusiness =
+    businesses.find((business) => business.slug === selectedBusinessSlug) ??
+    businesses[0];
+
+  const businessGalleryImages = activeBusiness?.galleryImages ?? [];
 
   return (
     <div className="overflow-x-hidden bg-slate-50">
@@ -390,44 +386,108 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="gallery" className="w-4/5 mx-auto py-20 space-y-8">
+        <section
+          id="gallery"
+          data-aos="fade-up"
+          className="w-4/5 mx-auto py-20 space-y-8"
+        >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.6rem] text-slate-500">Gallery</p>
               <h2 className="text-3xl font-bold text-slate-900">Meaningful field snapshots</h2>
             </div>
             <p className="text-sm text-slate-500 max-w-xl">
-              On-site moments that prove how Om Jay Facility blends operational discipline, safety, and collaboration.
+              Explore each Om Jay Group business through curated scenes from
+              their daily operations—select a name to focus the gallery on that
+              enterprise only.
             </p>
           </div>
-          <div className="grid gap-6 lg:grid-cols-[1.45fr,1fr]">
-            <div className="rounded-4xl border border-slate-200 bg-white shadow-lg overflow-hidden">
-              <Image
-                src={galleryHero.src}
-                alt={galleryHero.alt}
-                width={1200}
-                height={720}
-                className="object-cover w-full h-80 md:h-[360px]"
-              />
-              <div className="px-6 py-5">
-                <p className="text-sm text-slate-600">{galleryHero.caption}</p>
+          <div className="grid gap-8 lg:grid-cols-[0.9fr,1.4fr]">
+            <aside className="rounded-4xl border border-slate-200 bg-white p-6 shadow-lg">
+              <p className="text-xs uppercase tracking-[0.6rem] text-slate-500">Businesses</p>
+              <div className="mt-6 space-y-3">
+                {businesses.map((business) => {
+                  const isActive = business.slug === selectedBusinessSlug;
+                  return (
+                    <button
+                      key={business.slug}
+                      onClick={() => setSelectedBusinessSlug(business.slug)}
+                      className={`w-full rounded-3xl border px-4 py-3 text-left transition ${
+                        isActive
+                          ? "border-amber-300 bg-amber-50 text-amber-800 shadow-md"
+                          : "border-transparent bg-slate-50 text-slate-700 hover:border-slate-200"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-semibold">{business.name}</span>
+                        <span className="text-[0.6rem] uppercase tracking-[0.3rem] text-slate-500">
+                          {business.year}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-500">{business.nature}</p>
+                    </button>
+                  );
+                })}
               </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {galleryImages.map((src) => (
-                <div
-                  key={src}
-                  className="rounded-4xl overflow-hidden border border-slate-200 bg-white shadow-lg"
-                >
+            </aside>
+            <div className="space-y-6">
+              <article className="rounded-4xl border border-slate-200 bg-white shadow-lg overflow-hidden">
+                <div className="relative h-80 w-full">
                   <Image
-                    src={src}
-                    alt="Om Jay gallery"
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-40 md:h-48"
+                    src={activeBusiness?.detailImage ?? ""}
+                    alt={activeBusiness?.name ?? "Om Jay business"}
+                    fill
+                    className="object-cover"
+                    priority
                   />
                 </div>
-              ))}
+                <div className="px-6 py-5 space-y-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <h3 className="text-2xl font-semibold text-slate-900">
+                      {activeBusiness?.name}
+                    </h3>
+                    <span className="text-xs uppercase tracking-[0.3rem] text-slate-400">
+                      {activeBusiness?.year}
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-600">{activeBusiness?.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+                      {activeBusiness?.nature}
+                    </span>
+                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                      {activeBusiness?.presence}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm text-slate-500">
+                    <p>{activeBusiness?.address}</p>
+                    {activeBusiness && (
+                      <Link
+                        href={`/our-services/${activeBusiness.slug}`}
+                        className="text-blue-600 font-semibold"
+                      >
+                        View service page →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </article>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {businessGalleryImages.map((src) => (
+                  <div
+                    key={src}
+                    className="rounded-4xl overflow-hidden border border-slate-200 bg-white shadow-lg"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${activeBusiness?.name} gallery`}
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-48"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

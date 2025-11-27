@@ -19,13 +19,13 @@ const offices = [
 
 const contactMethods = [
   {
-    label: "Phone",
-    value: "8806607700",
+    label: "Phone: Dnyaneshwar (Mauli) Kale",
+    value: "+919890178717",
   },
   {
     label: "Email",
-    value: "vaibhav.kate@omjaygroup.com",
-    detail: "omjaytravels@gmail.com",
+    value: "mauli.kale@omjaygroup.com",
+    detail: "CEO : Om Jay Group",
   },
 ];
 
