@@ -24,7 +24,7 @@ const Footer = () => {
           >
             <div className="relative w-14 h-14">
               <Image
-                src="/images/Om Jay Facility Pvt. Ltd..png"
+                src="/images/Om Jay GrouporijLogo.jpg"
                 alt="Om Jay Group logo"
                 fill
                 sizes="56px"

@@ -70,11 +70,6 @@ const autoServicesByBusiness: Record<string, AutoServiceCard[]> = {
         "Multi-brand Tata commercial and passenger vehicles tailored with finance partners and delivery readiness.",
       slides: [
         {
-          src: "/images/Tata Intra V30.png",
-          label: "Position 1 · Tata Intra V30",
-          description: "Compact 1.5T payload pickup suited for dense urban distribution.",
-        },
-        {
           src: "/images/Tata Intra V10.avif",
           label: "Position 2 · Tata Intra V10",
           description: "Fuel-efficient micro truck for last-mile cargo up to 1T.",
@@ -238,17 +233,16 @@ const getServiceSlides = (service: AutoServiceCard): AutoServiceSlide[] => {
   return [];
 };
 
+const normalizeSlideLabel = (label: string) => label.replace(/^Position\s*\d+\s*·\s*/i, "").trim();
+
+const jayTractorsDetails = {
+  nature: "New Holland & CSH Harvester 3S Facility",
+  address: "Gat No-483, 2/1, Baramati - Indapur Rd, Moti Bag, Baramati, Maharashtra 413102",
+  ownerTitle: "Proprietor",
+};
+
 export default function BusinessDetailShell({ company }: BusinessDetailShellProps) {
   const [nav, setNav] = useState(false);
-  const [slideIndex, setSlideIndex] = useState<Record<string, number>>(() => {
-    const initial: Record<string, number> = {};
-    servicesByBusiness["om-jay-facility"]?.forEach((service) => {
-      initial[service.title] = 0;
-    });
-    return initial;
-  });
-  const [autoSlideIndex, setAutoSlideIndex] = useState<Record<string, number>>({});
-  const [authorizedSlideIndex, setAuthorizedSlideIndex] = useState<Record<string, number>>({});
   const kateMotorsDealership = businesses.find((item) => item.slug === "kate-motors");
 
   const openNavHandler = () => setNav(true);
@@ -264,75 +258,11 @@ export default function BusinessDetailShell({ company }: BusinessDetailShellProp
     });
   }, []);
 
-  useEffect(() => {
-    if (autoServicesByBusiness[company.slug]) {
-      const initial: Record<string, number> = {};
-      autoServicesByBusiness[company.slug].forEach((service) => {
-        initial[service.title] = 0;
-      });
-      setAutoSlideIndex(initial);
-    }
-  }, [company.slug]);
-
-  useEffect(() => {
-    if (company.slug === "jay-tractors") {
-      const initial: Record<string, number> = {};
-      jayTractorsHighlightServices.forEach((service) => {
-        initial[service.title] = 0;
-      });
-      setAuthorizedSlideIndex(initial);
-    } else {
-      setAuthorizedSlideIndex({});
-    }
-  }, [company.slug]);
-
   const presenceText =
     company.slug === "om-jay-facility"
       ? "Baramati, Indapur, Faltan"
       : company.presence;
   const showContact = company.slug !== "om-jay-facility";
-
-  const nextSlide = (title: string, count: number) => {
-    setSlideIndex((prev) => ({
-      ...prev,
-      [title]: (prev[title] + 1) % count,
-    }));
-  };
-
-  const prevSlide = (title: string, count: number) => {
-    setSlideIndex((prev) => ({
-      ...prev,
-      [title]: (prev[title] - 1 + count) % count,
-    }));
-  };
-
-  const nextAutoSlide = (title: string, count: number) => {
-    setAutoSlideIndex((prev) => ({
-      ...prev,
-      [title]: (prev[title] + 1) % count,
-    }));
-  };
-
-  const prevAutoSlide = (title: string, count: number) => {
-    setAutoSlideIndex((prev) => ({
-      ...prev,
-      [title]: (prev[title] - 1 + count) % count,
-    }));
-  };
-
-  const nextAuthorizedSlide = (title: string, count: number) => {
-    setAuthorizedSlideIndex((prev) => ({
-      ...prev,
-      [title]: (prev[title] + 1) % count,
-    }));
-  };
-
-  const prevAuthorizedSlide = (title: string, count: number) => {
-    setAuthorizedSlideIndex((prev) => ({
-      ...prev,
-      [title]: (prev[title] - 1 + count) % count,
-    }));
-  };
 
   return (
     <div className="overflow-x-hidden bg-slate-50 min-h-screen">
@@ -360,108 +290,6 @@ export default function BusinessDetailShell({ company }: BusinessDetailShellProp
           </div>
         </section>
 
-        {company.slug === "jay-tractors" && kateMotorsDealership && (
-          <section className="w-4/5 mx-auto pb-20">
-            <div className="rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-lg space-y-10">
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/images/logo.png"
-                    alt="Om Jay Group"
-                    width={64}
-                    height={64}
-                    className="rounded-full border border-slate-200 bg-white p-2"
-                  />
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.5rem] text-slate-500">
-                      Authorized Dealership
-                    </p>
-                    <h2 className="text-3xl font-semibold text-slate-900">
-                      NEW HOLLAND
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              <p className="mt-4 max-w-3xl text-sm text-slate-600">
-                Jay Tractors is our authorized New Holland dealership delivering premium sales, service,
-                and attachments through dedicated technicians and OEM-grade parts.
-              </p>
-
-              <div className="rounded-4xl border border-slate-200 bg-linear-to-br from-blue-900 to-cyan-500 p-8 text-white shadow-xl space-y-6">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.5rem] text-white/80">
-                    Automobile Services
-                  </p>
-                <h3 className="text-2xl font-semibold">New Holland Experience</h3>
-                <p className="text-sm text-white/80 max-w-2xl">
-                  Jay Tractors curates a dedicated New Holland ecosystem with sales, spares, and service
-                  support that matches the heritage of the brand.
-                </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {jayTractorsHighlightServices.map((service) => {
-                    const slides = getServiceSlides(service);
-                    if (!slides.length) {
-                      return null;
-                    }
-                    const activeIndex = authorizedSlideIndex[service.title] ?? 0;
-                    const activeSlide = slides[activeIndex % slides.length];
-                    if (!activeSlide) {
-                      return null;
-                    }
-                    return (
-                      <div
-                        key={service.title}
-                        className="rounded-3xl border border-white/30 bg-white/10 p-6 backdrop-blur"
-                      >
-                        <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-white/40 bg-white">
-                          <Image
-                            src={activeSlide.src}
-                            alt={activeSlide.label || `${service.title} image`}
-                            fill
-                            sizes="(min-width: 768px) 30vw, 90vw"
-                            className="object-contain"
-                          />
-                          {slides.length > 1 && (
-                            <div className="absolute inset-0 flex items-center justify-between px-3">
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  prevAuthorizedSlide(service.title, slides.length)
-                                }
-                                className="rounded-full bg-white/70 p-2 text-xs font-semibold text-slate-700"
-                              >
-                                ‹
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  nextAuthorizedSlide(service.title, slides.length)
-                                }
-                                className="rounded-full bg-white/70 p-2 text-xs font-semibold text-slate-700"
-                              >
-                                ›
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                        <h4 className="mt-4 text-lg font-semibold">{service.title}</h4>
-                        <div className="mt-1 space-y-1">
-                          <p className="text-sm font-semibold text-white">
-                            {activeSlide.label}
-                          </p>
-                          <p className="text-xs text-white/80">{activeSlide.description}</p>
-                        </div>
-                        <p className="mt-2 text-sm text-white/90">{service.description}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-
         {servicesByBusiness[company.slug] && (
           <section className="w-4/5 mx-auto pb-20">
             <div className="space-y-6">
@@ -485,54 +313,45 @@ export default function BusinessDetailShell({ company }: BusinessDetailShellProp
                   className="object-cover"
                 />
               </div>
-              <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-                {servicesByBusiness[company.slug].map((service) => {
-                  const slides = service.images.filter(Boolean);
-                  const activeIndex = slideIndex[service.title] ?? 0;
-                  return (
-                    <div
-                      key={service.title}
-                      className="bg-white border border-slate-100 rounded-4xl shadow-lg overflow-hidden"
-                    >
-                      <div className="relative h-48 w-full">
-                        <Image
-                          src={slides[activeIndex]}
-                          alt={service.title}
-                          fill
-                          sizes="(min-width: 768px) 50vw, 90vw"
-                          className="object-cover"
-                        />
-                        {slides.length > 1 && (
-                          <div className="absolute inset-0 flex items-center justify-between px-4">
-                            <button
-                              type="button"
-                              onClick={() => prevSlide(service.title, slides.length)}
-                              className="rounded-full bg-white/70 p-2 text-sm font-semibold text-slate-700 shadow"
-                            >
-                              ‹
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => nextSlide(service.title, slides.length)}
-                              className="rounded-full bg-white/70 p-2 text-sm font-semibold text-slate-700 shadow"
-                            >
-                              ›
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                      <div className="p-6">
-                        <div className="flex items-center justify-between">
-                          <h3 className="text-lg font-semibold text-slate-900">
-                            {service.title}
-                          </h3>
-                        </div>
-                        <p className="mt-3 text-sm text-slate-600">{service.description}</p>
-                      </div>
+            <div className="space-y-10">
+              {servicesByBusiness[company.slug].map((service) => {
+                const images = service.images.filter(Boolean);
+                if (!images.length) {
+                  return null;
+                }
+                return (
+                  <div
+                    key={`${service.title}-gallery`}
+                    className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg space-y-6"
+                  >
+                    <div className="flex flex-col gap-2">
+                      <h3 className="text-2xl font-semibold text-slate-900">{service.title}</h3>
+                      <p className="text-sm text-slate-600">{service.description}</p>
                     </div>
-                  );
-                })}
-              </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {images.map((src, index) => (
+                        <article
+                          key={`${service.title}-${index}-${src}`}
+                          className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm space-y-3"
+                        >
+                          <div className="relative h-40 w-full overflow-hidden rounded-xl border border-slate-200">
+                            <Image
+                              src={src}
+                              alt={`${service.title} image ${index + 1}`}
+                              fill
+                              sizes="(min-width: 768px) 20vw, 90vw"
+                              className="object-cover"
+                            />
+                          </div>
+                          <p className="text-base font-semibold text-slate-900">{`Image ${index + 1}`}</p>
+                          <p className="text-sm text-slate-600">{service.description}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
             </div>
           </section>
         )}
@@ -552,56 +371,44 @@ export default function BusinessDetailShell({ company }: BusinessDetailShellProp
                   Serving Baramati · Indapur · Chauphulla · Nira
                 </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-10">
                 {autoServicesByBusiness[company.slug].map((service) => {
                   const slides = getServiceSlides(service);
                   if (!slides.length) {
                     return null;
                   }
-                  const activeIndex = autoSlideIndex[service.title] ?? 0;
-                  const activeSlide = slides[activeIndex % slides.length];
                   return (
                     <div
-                      key={service.title}
-                      className="rounded-3xl border border-white/30 bg-white/10 p-6 backdrop-blur"
+                      key={`${service.title}-details`}
+                      className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg space-y-6"
                     >
-                      <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-white/40 bg-white">
-                        <Image
-                          src={activeSlide.src}
-                          alt={activeSlide.label || `${service.title} image`}
-                          fill
-                          sizes="(min-width: 768px) 30vw, 90vw"
-                          className="object-contain"
-                        />
-                        {slides.length > 1 && (
-                          <div className="absolute inset-0 flex items-center justify-between px-3">
-                            <button
-                              type="button"
-                              onClick={() => prevAutoSlide(service.title, slides.length)}
-                              className="rounded-full bg-white/70 p-2 text-xs font-semibold text-slate-700"
-                            >
-                              ‹
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => nextAutoSlide(service.title, slides.length)}
-                              className="rounded-full bg-white/70 p-2 text-xs font-semibold text-slate-700"
-                            >
-                              ›
-                            </button>
-                          </div>
-                        )}
+                      <div className="flex flex-col gap-2">
+                        <h4 className="text-2xl font-semibold text-slate-900">{service.title}</h4>
+                        <p className="text-sm text-slate-600">{service.description}</p>
                       </div>
-                      <h4 className="mt-4 text-lg font-semibold">{service.title}</h4>
-                      <div className="mt-1 space-y-1">
-                        <p className="text-sm font-semibold text-white">
-                          {activeSlide.label}
-                        </p>
-                        <p className="text-xs text-white/80">
-                          {activeSlide.description}
-                        </p>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {slides.map((slide, index) => {
+                          const displayLabel = normalizeSlideLabel(slide.label);
+                          return (
+                            <article
+                              key={`${service.title}-${index}-${slide.src}`}
+                              className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm space-y-3"
+                            >
+                              <div className="relative h-40 w-full overflow-hidden rounded-xl border border-slate-200">
+                                <Image
+                                  src={slide.src}
+                                  alt={displayLabel || `${service.title} image`}
+                                  fill
+                                  sizes="(min-width: 768px) 20vw, 90vw"
+                                  className="object-cover"
+                                />
+                              </div>
+                              <p className="text-base font-semibold text-slate-900">{displayLabel}</p>
+                              <p className="text-sm text-slate-600">{slide.description}</p>
+                            </article>
+                          );
+                        })}
                       </div>
-                      <p className="mt-2 text-sm text-white/90">{service.description}</p>
                     </div>
                   );
                 })}
@@ -663,6 +470,71 @@ export default function BusinessDetailShell({ company }: BusinessDetailShellProp
                   </p>
                 </div>
               </div>
+            </div>
+
+            <div className="rounded-[2.5rem] border border-slate-200 bg-linear-to-br from-blue-900 to-cyan-500 p-8 text-white shadow-xl space-y-6">
+              <div>
+                <p className="text-xs uppercase tracking-[0.5rem] text-white/80">Baramati · Indapur</p>
+                <h3 className="text-3xl font-semibold">Jay Tractors</h3>
+                <p className="text-sm text-white/80">
+                  New Holland tractors and CSH Harvester 3S facility backed by expert technicians and finance partners.
+                </p>
+              </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="rounded-2xl border border-white/40 bg-white/10 p-4 shadow-sm">
+                  <p className="text-xs uppercase tracking-[0.4rem] text-white/80">What we deliver</p>
+                  <p className="text-lg font-semibold text-white">{jayTractorsDetails.nature}</p>
+                </div>
+                <div className="rounded-2xl border border-white/40 bg-white/10 p-4 shadow-sm">
+                  <p className="text-xs uppercase tracking-[0.4rem] text-white/80">Details</p>
+                  <p className="text-sm text-white/80 leading-relaxed">{jayTractorsDetails.address}</p>
+                  <p className="text-sm text-white">
+                    Status: <span className="font-semibold text-white">{jayTractorsDetails.ownerTitle}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-10">
+              {jayTractorsHighlightServices.map((service) => {
+                const slides = getServiceSlides(service);
+                if (!slides.length) {
+                  return null;
+                }
+                return (
+                  <div
+                    key={`${service.title}-gallery`}
+                    className="rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-lg space-y-6"
+                  >
+                    <div className="flex flex-col gap-2">
+                      <h4 className="text-2xl font-semibold text-slate-900">{service.title}</h4>
+                      <p className="text-sm text-slate-600">{service.description}</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {slides.map((slide, index) => {
+                        const displayLabel = normalizeSlideLabel(slide.label);
+                        return (
+                          <article
+                            key={`${service.title}-${index}-${slide.src}`}
+                            className="rounded-2xl border border-slate-200 bg-slate-50 p-4 shadow-sm space-y-3"
+                          >
+                            <div className="relative h-40 w-full overflow-hidden rounded-xl border border-slate-200">
+                              <Image
+                                src={slide.src}
+                                alt={displayLabel || `${service.title} image`}
+                                fill
+                                sizes="(min-width: 768px) 20vw, 90vw"
+                                className="object-cover"
+                              />
+                            </div>
+                            <p className="text-base font-semibold text-slate-900">{displayLabel}</p>
+                            <p className="text-sm text-slate-600">{slide.description}</p>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}

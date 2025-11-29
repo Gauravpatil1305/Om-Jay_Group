@@ -253,15 +253,30 @@ export default function Home() {
 
       <main className="pt-[8vh]">
         <section id="home" className="relative h-[90vh] overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/heroimg.webp"
-              alt="Om Jay hero image"
-              fill
-              className="object-cover opacity-70"
-              priority
-            />
+          <div className="absolute inset-0 flex z-0">
+            <div className="relative w-1/2 h-full overflow-hidden">
+              <Image
+                src="/images/MainLogo.png"
+                alt="Om Jay Group logo"
+                fill
+                sizes="(max-width: 768px) 50vw, 50vw"
+                className="object-contain scale-125"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/40" />
+            </div>
+            <div className="relative w-1/2 h-full overflow-hidden">
+              <Image
+                src="/images/heroimg.webp"
+                alt="Om Jay hero image"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/40" />
+            </div>
           </div>
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
           <div className="relative z-10 w-4/5 mx-auto h-full flex flex-col justify-center gap-6 text-white">
             <p className="text-xs uppercase tracking-[0.6rem] text-amber-200">Reach the Om Jay family</p>
             <h1 className="text-3xl md:text-5xl font-bold">

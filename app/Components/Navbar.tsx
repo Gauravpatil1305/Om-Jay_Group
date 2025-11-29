@@ -11,7 +11,7 @@ const Navbar = ({ openNav }: Props) => {
   return (
     <nav
       id="home"
-      className="w-full bg-white/80 backdrop-blur border-b border-slate-100 fixed z-[9999]"
+      className="w-full bg-white/80 backdrop-blur border-b border-slate-100 fixed z-9999"
     >
       <div className="flex w-4/5 mx-auto items-center justify-between py-4 h-[8vh] lg:h-[12vh]">
         <Link
@@ -19,16 +19,16 @@ const Navbar = ({ openNav }: Props) => {
           className="flex items-center gap-3 shrink-0 text-ellipsis"
           aria-label="Go to homepage"
         >
-          <div className="relative w-28 h-20 lg:w-32 lg:h-24">
-            <Image
-              src="/images/Om Jay Facility Pvt. Ltd..png"
-              alt="Om Jay Group logo"
-              fill
-              sizes="(max-width: 768px) 40vw, 160px"
-              className="object-contain"
-              priority
-            />
-          </div>
+            <div className="relative w-28 h-20 lg:w-32 lg:h-24">
+              <Image
+                src="/images/MainLogo.png"
+                alt="Om Jay Group logo"
+                fill
+                sizes="(max-width: 768px) 40vw, 160px"
+                className="object-contain"
+                priority
+              />
+            </div>
         </Link>
         <div className="flex items-center gap-6 lg:gap-12">
           <div className="hidden lg:flex items-center gap-6">
