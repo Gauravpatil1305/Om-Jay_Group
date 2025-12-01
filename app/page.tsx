@@ -20,6 +20,20 @@ const heroHighlights = [
 
 const services = [
   {
+    title: "Kate Motors",
+    detail:
+      "A dedicated sales and service ecosystem for Tata vehicles across Maharashtra, presented with the dual-image carousel inspired by the reference design.",
+    imageSrc: "/images/carverities.jpg",
+    imageAlt: "Service Kate Motors",
+  },
+  {
+    title: "Jay Tractors",
+    detail:
+      "New Holland tractors and CSH Harvester 3S facility backed by expert technicians and finance partners.",
+    imageSrc: "/images/Jay Tractors.jpg.jpeg",
+    imageAlt: "Truck on logistics road",
+  },
+  {
     title: "Transport & Logistics",
     detail:
       "Fleet management, compliance-ready trailers, and multi-modal connectivity across the western corridor.",
@@ -263,7 +277,7 @@ export default function Home() {
                 className="object-contain scale-125"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/40" />
+              <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 to-slate-900/40" />
             </div>
             <div className="relative w-1/2 h-full overflow-hidden">
               <Image
@@ -273,10 +287,10 @@ export default function Home() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 to-slate-900/40" />
+              <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 to-slate-900/40" />
             </div>
           </div>
-          <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 z-10 bg-linear-to-r from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
           <div className="relative z-10 w-4/5 mx-auto h-full flex flex-col justify-center gap-6 text-white">
             <p className="text-xs uppercase tracking-[0.6rem] text-amber-200">Reach the Om Jay family</p>
             <h1 className="text-3xl md:text-5xl font-bold">

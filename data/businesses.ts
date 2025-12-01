@@ -13,6 +13,7 @@ export interface Business {
   detailImage: string;
   featureImage: string;
   galleryImages: string[];
+  showInServicesPage?: boolean;
 }
 
 export const businesses: Business[] = [
@@ -51,6 +52,11 @@ export const businesses: Business[] = [
     featureImage: "/images/Om Jay Facility Pvt. Ltd..jpg",
     galleryImages: ["/images/bustransportation.jpg", "/images/BusTransportations.jpg"],
   },
+ 
 ];
+
+export const serviceBusinesses = businesses.filter(
+  (business) => business.showInServicesPage !== false
+);
 
 

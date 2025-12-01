@@ -8,7 +8,7 @@ import Contact from "../Components/Contact";
 import Footer from "../Components/Footer";
 import MobileNav from "../Components/MobileNav";
 import Navbar from "../Components/Navbar";
-import { businesses } from "../../data/businesses";
+import { serviceBusinesses } from "../../data/businesses";
 
 export default function OurServicesPage() {
   const [nav, setNav] = useState(false);
@@ -47,7 +47,7 @@ export default function OurServicesPage() {
 
         <section className="w-4/5 mx-auto pb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {businesses.map((company) => {
+            {serviceBusinesses.map((company) => {
               const logoSrc = company.logoUrl || company.featureImage;
               const displayName =
                 company.slug === "kate-motors" ? "Authorized Dealership" : company.name;

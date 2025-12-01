@@ -5,6 +5,22 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { businesses } from "../../data/businesses";
 
+const featuredSlides = [
+  {
+    id: "jay-tractors",
+    name: "Jay Tractors",
+    description:
+      "New Holland tractors and CSH Harvester 3S facility backed by expert technicians and finance partners.",
+    image: "/images/Jay Tractors.jpg.jpeg",
+  },
+  {
+    id: "kate-motors",
+    name: "Kate motors",
+    description: "Authorized Tata Motors dealership spanning sales, service, and spares.",
+    image: "/images/kateMOTORS (2).jpeg",
+  },
+];
+
 const responsive = {
   desktop: {
     breakpoint: { max: 5000, min: 1280 },
@@ -44,7 +60,31 @@ const BusinessCarousel = () => {
       showDots={false}
       sliderClass="pb-8"
     >
-      {businesses.map((business, index) => (
+    {featuredSlides.map((slide) => (
+      <article
+        key={`featured-${slide.id}`}
+        className="rounded-4xl border border-slate-200 bg-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl"
+      >
+        <div className="relative h-48 w-full overflow-hidden rounded-t-4xl">
+          <Image
+            src={slide.image}
+            alt={slide.name}
+            fill
+            sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 90vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 z-10 pointer-events-none bg-linear-to-t from-slate-900/80 via-slate-900/30 to-transparent" />
+        </div>
+        <div className="space-y-2 px-5 py-5">
+          <p className="text-[12px] uppercase tracking-[0.5rem] text-amber-500">
+            Business story
+          </p>
+          <h3 className="text-lg font-semibold text-slate-900">{slide.name}</h3>
+          <p className="text-sm text-slate-500">{slide.description}</p>
+        </div>
+      </article>
+    ))}
+    {businesses.map((business, index) => (
         <article
           key={business.slug}
           className="rounded-4xl border border-slate-200 bg-white shadow-xl transition hover:-translate-y-1 hover:shadow-2xl"

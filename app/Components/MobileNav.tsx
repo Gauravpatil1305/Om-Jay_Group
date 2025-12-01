@@ -1,5 +1,7 @@
+"use client";
 import { XMarkIcon } from "@heroicons/react/16/solid";
-import React from "react";
+import { MouseEvent } from "react";
+import { useRouter } from "next/navigation";
 
 interface Props {
   nav: boolean;
@@ -7,12 +9,16 @@ interface Props {
 }
 
 const MobileNav = ({ nav, closeNav }: Props) => {
+  const router = useRouter();
   const navAnimation = nav ? "translate-x-0" : "translate-x-[-100%]";
 
-  const handleLinkClick = (event: any, target: string) => {
+  const handleLinkClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    target: string,
+  ) => {
     event.preventDefault(); // Mencegah tindakan default dari link
     closeNav(); // Menutup navigasi
-    window.location.href = target; // Mengubah URL sesuai target
+    router.push(target);
   };
 
   return (

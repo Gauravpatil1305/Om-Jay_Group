@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import BusinessDetailShell from "./BusinessDetailShell";
-import { businesses, Business } from "../../../data/businesses";
+import { Business, businesses, serviceBusinesses } from "../../../data/businesses";
 
 interface Params {
   slug: string;
 }
 
 export async function generateStaticParams() {
-  return businesses.map((business) => ({
+  return serviceBusinesses.map((business) => ({
     slug: business.slug,
   }));
 }
